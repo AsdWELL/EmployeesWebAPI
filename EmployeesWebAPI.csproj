@@ -18,4 +18,9 @@
     <PackageReference Include="Npgsql" Version="9.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataAccess\Scripts\Passport\" />
+    <Folder Include="DataAccess\Scripts\Department\" />
+  </ItemGroup>
+
 </Project>
