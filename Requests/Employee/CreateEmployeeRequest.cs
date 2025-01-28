@@ -1,15 +1,10 @@
-﻿namespace EmployeesWebAPI.Entities
+﻿namespace EmployeesWebAPI.Requests.Employee
 {
     /// <summary>
-    /// Модель сотрудника
+    /// Модель запроса на добавление сотрудника
     /// </summary>
-    public class Employee
+    public class CreateEmployeeRequest
     {
-        /// <summary>
-        /// Уникальный идентификатор
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Имя сотрудника
         /// </summary>

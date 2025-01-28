@@ -1,9 +1,9 @@
-﻿namespace EmployeesWebAPI.Entities
+﻿namespace EmployeesWebAPI.Requests.Passport
 {
     /// <summary>
-    /// Модель паспорта
+    /// Модель запроса на обновление данных о паспорте
     /// </summary>
-    public class Passport
+    public class UpdatePassportRequest
     {
         /// <summary>
         /// Уникальный идентификатор
@@ -13,11 +13,11 @@
         /// <summary>
         /// Тип паспорта
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Номер паспорта
         /// </summary>
-        public string Number { get; set; }
+        public string? Number { get; set; }
     }
 }

@@ -1,9 +1,9 @@
-﻿namespace EmployeesWebAPI.Entities
+﻿namespace EmployeesWebAPI.Requests.Department
 {
     /// <summary>
-    /// Модель отдела
+    /// Моедель запроса на обновленине данных об отделе
     /// </summary>
-    public class Department
+    public class UpdateDepartmentRequest
     {
         /// <summary>
         /// Уникальный идентификатор
@@ -13,11 +13,11 @@
         /// <summary>
         /// Название отдела
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Телефонный номер
         /// </summary>
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
     }
 }
