@@ -1,4 +1,8 @@
 ﻿using DbUp;
+using EmployeesWebAPI.Repositories;
+using EmployeesWebAPI.Repositories.Interfaces;
+using EmployeesWebAPI.Services;
+using EmployeesWebAPI.Services.Interfaces;
 using System.Reflection;
 
 namespace EmployeesWebAPI.Extensions
@@ -32,6 +36,30 @@ namespace EmployeesWebAPI.Extensions
             }
 
             return services;
+        }
+
+        /// <summary>
+        /// Добавляет репозитории моделей
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            return services.AddScoped<IPassportRepository, PassportRepository>()
+                .AddScoped<IDepartmentRepository, DepartmentRepository>()
+                .AddScoped<IEmployeeRepository, EmployeeRepository>();
+        }
+
+        /// <summary>
+        /// Добавляет сервисы моделей
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddServices(this IServiceCollection services)
+        {
+            return services.AddScoped<IPassportService, PassportService>()
+                .AddScoped<IDepartmentService, DepartmentService>()
+                .AddScoped<IEmployeeService, EmployeeService>();
         }
     }
 }

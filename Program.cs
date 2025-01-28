@@ -1,5 +1,6 @@
 using EmployeesWebAPI.DataAccess;
 using EmployeesWebAPI.Extensions;
+using EmployeesWebAPI.Filters;
 
 namespace EmployeesWebAPI
 {
@@ -12,8 +13,11 @@ namespace EmployeesWebAPI
             var dbSection = builder.Configuration.GetRequiredSection("EmployeesDatabase");
 
             builder.Services.Configure<DBSettings>(dbSection);
-            
-            builder.Services.MigrateDatabase(dbSection);
+
+            builder.Services
+                .MigrateDatabase(dbSection)
+                .AddRepositories()
+                .AddServices();
             
             var app = builder.Build();
 
