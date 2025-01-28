@@ -18,7 +18,10 @@ namespace EmployeesWebAPI
                 .MigrateDatabase(dbSection)
                 .AddRepositories()
                 .AddServices();
-            
+
+            builder.Services.AddControllers(
+                options => options.Filters.Add<ExceptionFilter>());
+
             var app = builder.Build();
 
             app.Run();
