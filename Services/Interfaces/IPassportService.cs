@@ -12,8 +12,8 @@ namespace EmployeesWebAPI.Services.Interfaces
         /// Возвращает паспорт по <paramref name="id"/>
         /// </summary>
         /// <param name="id">Id паспорта</param>
-        /// <returns>Паспорт с указанным id или null, если паспорта с таким id нет</returns>
-        Task<Passport?> GetPassportById(int id);
+        /// <returns>Паспорт с указанным id</returns>
+        Task<Passport> GetPassportById(int id);
 
         /// <summary>
         /// Возвращает все паспорта

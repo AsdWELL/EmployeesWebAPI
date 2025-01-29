@@ -19,8 +19,8 @@ namespace EmployeesWebAPI.Services.Interfaces
         /// Возвращает отдел по <paramref name="id"/>
         /// </summary>
         /// <param name="id">Id отдела</param>
-        /// <returns>Отдел с указанным id или null, если отдела с таким id нет</returns>
-        Task<Department?> GetDepartmentById(int id);
+        /// <returns>Отдел с указанным id</returns>
+        Task<Department> GetDepartmentById(int id);
 
         /// <summary>
         /// Возвращает все отделы

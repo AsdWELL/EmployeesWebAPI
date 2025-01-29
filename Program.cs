@@ -10,6 +10,8 @@ namespace EmployeesWebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddSwagger();
+
             var dbSection = builder.Configuration.GetRequiredSection("EmployeesDatabase");
 
             builder.Services.Configure<DBSettings>(dbSection);
@@ -23,6 +25,15 @@ namespace EmployeesWebAPI
                 options => options.Filters.Add<ExceptionFilter>());
 
             var app = builder.Build();
+
+            app.UseSwagger()
+               .UseSwaggerUI(options =>
+               {
+                   options.SwaggerEndpoint("/swagger/Employees/swagger.json", "Employees WebApi");
+                   options.RoutePrefix = string.Empty;
+               });
+
+            app.MapControllers();
 
             app.Run();
         }

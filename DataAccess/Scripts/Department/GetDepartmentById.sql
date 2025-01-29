@@ -1,2 +1,5 @@
-﻿SELECT * FROM "Departments"
+﻿SELECT "Id",
+	   "Name",
+	   "Phone"
+FROM "Departments"
 WHERE "Id" = @Id

@@ -63,7 +63,7 @@ namespace EmployeesWebAPI.DataAccess {
         /// <summary>
         ///   Ищет локализованную строку, похожую на INSERT INTO &quot;Departments&quot; (&quot;Name&quot;, &quot;Phone&quot;)
         ///VALUES (@Name, @Phone)
-        ///RETURNING &quot;Id.
+        ///RETURNING &quot;Id&quot;.
         /// </summary>
         internal static string CreateDepartment {
             get {

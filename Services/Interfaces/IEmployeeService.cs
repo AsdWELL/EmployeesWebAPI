@@ -19,8 +19,8 @@ namespace EmployeesWebAPI.Services.Interfaces
         /// Возвращает сотрудника по <paramref name="id"/>
         /// </summary>
         /// <param name="id">Id сотрудника</param>
-        /// <returns>Сотрудник с указанным id или null, если паспорта с таким id нет</returns>
-        Task<Employee?> GetEmployeeById(int id);
+        /// <returns>Сотрудник с указанным id</returns>
+        Task<Employee> GetEmployeeById(int id);
 
         /// <summary>
         /// Возвращает всех сотрудников
