@@ -9,44 +9,44 @@ namespace EmployeesWebAPI.Services
     /// <summary>
     /// Сервис <see cref="Passport"/>
     /// </summary>
-    /// <param name="repository"></param>
-    public class PassportService(IPassportRepository repository) : IPassportService
+    /// <param name="passportRepository"></param>
+    public class PassportService(IPassportRepository passportRepository) : IPassportService
     {
         ///<inheritdoc/>
-        public Task<Passport?> GetPassportById(int id)
+        public async Task<Passport> GetPassportById(int id)
         {
-            return repository.GetPassportById(id)
+            return await passportRepository.GetPassportById(id)
                 ?? throw new PassportNotFoundException(id);
         }
 
         ///<inheritdoc/>
         public Task<List<Passport>> GetAllPassports()
         {
-            return repository.GetAllPassports();
+            return passportRepository.GetAllPassports();
         }
 
         ///<inheritdoc/>
         public Task<int> CreatePassport(CreatePassportRequest request)
         {
-            return repository.CreatePassport(request);
+            return passportRepository.CreatePassport(request);
         }
 
         ///<inheritdoc/>
-        public Task UpdatePassport(UpdatePassportRequest request)
+        public async Task UpdatePassport(UpdatePassportRequest request)
         {
-            if (repository.GetPassportById(request.Id) == null)
+            if ((await passportRepository.GetPassportById(request.Id)) == null)
                 throw new PassportNotFoundException(request.Id);
 
-            return repository.UpdatePassport(request);
+            await passportRepository.UpdatePassport(request);
         }
 
         ///<inheritdoc/>
-        public Task DeletePassport(int id)
+        public async Task DeletePassport(int id)
         {
-            if (repository.GetPassportById(id) == null)
+            if ((await passportRepository.GetPassportById(id)) == null)
                 throw new PassportNotFoundException(id);
 
-            return repository.DeletePassport(id);
+            await passportRepository.DeletePassport(id);
         }
     }
 }

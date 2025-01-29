@@ -3,6 +3,7 @@ using EmployeesWebAPI.Repositories;
 using EmployeesWebAPI.Repositories.Interfaces;
 using EmployeesWebAPI.Services;
 using EmployeesWebAPI.Services.Interfaces;
+using Microsoft.OpenApi.Models;
 using System.Reflection;
 
 namespace EmployeesWebAPI.Extensions
@@ -18,7 +19,7 @@ namespace EmployeesWebAPI.Extensions
         public static IServiceCollection MigrateDatabase(this IServiceCollection services,
             IConfigurationSection dbSection)
         {            
-            string connectionString = dbSection["ConnectionString"];
+            var connectionString = dbSection["ConnectionString"];
 
             EnsureDatabase.For.PostgresqlDatabase(connectionString);
 
@@ -60,6 +61,20 @@ namespace EmployeesWebAPI.Extensions
             return services.AddScoped<IPassportService, PassportService>()
                 .AddScoped<IDepartmentService, DepartmentService>()
                 .AddScoped<IEmployeeService, EmployeeService>();
+        }
+
+        public static IServiceCollection AddSwagger(this IServiceCollection services)
+        {
+            return services.AddEndpointsApiExplorer()
+                            .AddSwaggerGen(options =>
+                            {
+                                options.SwaggerDoc("Employees", new OpenApiInfo
+                                {
+                                    Version = "v1",
+                                    Title = "Сотрудники",
+                                    Description = "Тестовое задание"
+                                });
+                            });
         }
     }
 }

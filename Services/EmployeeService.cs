@@ -9,55 +9,55 @@ namespace EmployeesWebAPI.Services
     /// <summary>
     /// Сервис <see cref="Employee"/>
     /// </summary>
-    public class EmployeeService(IEmployeeRepository repository) : IEmployeeService
+    public class EmployeeService(IEmployeeRepository employeeRepository) : IEmployeeService
     {
         ///<inheritdoc/>
         public Task<int> CreateEmployee(CreateEmployeeRequest request)
         {
-            return repository.CreateEmployee(request);
+            return employeeRepository.CreateEmployee(request);
         }
 
         ///<inheritdoc/>
-        public async Task<Employee?> GetEmployeeById(int id)
+        public async Task<Employee> GetEmployeeById(int id)
         {
-            return await repository.GetEmployeeById(id)
+            return await employeeRepository.GetEmployeeById(id)
                 ?? throw new EmployeeNotFoundException(id);
         }
 
         ///<inheritdoc/>
         public Task<List<Employee>> GetAllEmployees()
         {
-            return repository.GetAllEmployees();
+            return employeeRepository.GetAllEmployees();
         }
 
         ///<inheritdoc/>
         public Task<List<Employee>> GetEmployeesByCompanyId(int companyId)
         {
-            return repository.GetEmployeesByCompanyId(companyId);
+            return employeeRepository.GetEmployeesByCompanyId(companyId);
         }
 
         ///<inheritdoc/>
         public Task<List<Employee>> GetEmployeesByCompanyIdAndDepartmentId(int companyId, int departmentId)
         {
-            return repository.GetEmployeesByCompanyIdAndDepartmentId(companyId, departmentId);
+            return employeeRepository.GetEmployeesByCompanyIdAndDepartmentId(companyId, departmentId);
         }
 
         ///<inheritdoc/>
-        public Task DeleteEmployee(int id)
+        public async Task DeleteEmployee(int id)
         {
-            if (repository.GetEmployeeById(id) == null)
+            if ((await employeeRepository.GetEmployeeById(id)) == null)
                 throw new EmployeeNotFoundException(id);
 
-            return repository.DeleteEmployee(id);
+            await employeeRepository.DeleteEmployee(id);
         }
 
         ///<inheritdoc/>
-        public Task UpdateEmployee(UpdateEmployeeRequest request)
+        public async Task UpdateEmployee(UpdateEmployeeRequest request)
         {
-            if (repository.GetEmployeeById(request.Id) == null)
+            if ((await employeeRepository.GetEmployeeById(request.Id)) == null)
                 throw new EmployeeNotFoundException(request.Id);
 
-            return repository.UpdateEmployee(request);
+            await employeeRepository.UpdateEmployee(request);
         }
     }
 }

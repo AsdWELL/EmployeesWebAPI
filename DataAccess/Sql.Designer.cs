@@ -63,7 +63,7 @@ namespace EmployeesWebAPI.DataAccess {
         /// <summary>
         ///   Ищет локализованную строку, похожую на INSERT INTO &quot;Departments&quot; (&quot;Name&quot;, &quot;Phone&quot;)
         ///VALUES (@Name, @Phone)
-        ///RETURNING &quot;Id.
+        ///RETURNING &quot;Id&quot;.
         /// </summary>
         internal static string CreateDepartment {
             get {
@@ -124,7 +124,10 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Departments&quot;.
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Name&quot;,
+        ///	   &quot;Phone&quot;
+        ///FROM &quot;Departments&quot;.
         /// </summary>
         internal static string GetAllDepartments {
             get {
@@ -133,7 +136,14 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Employees&quot;.
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Name&quot;,
+        ///	   &quot;Surname&quot;,
+        ///	   &quot;Phone&quot;,
+        ///	   &quot;CompanyId&quot;,
+        ///	   &quot;PassportId&quot;,
+        ///	   &quot;DepartmentId&quot;
+        ///FROM &quot;Employees&quot;.
         /// </summary>
         internal static string GetAllEmployees {
             get {
@@ -142,7 +152,10 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Passports&quot;.
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Type&quot;,
+        ///	   &quot;Number&quot;
+        ///FROM &quot;Passports&quot;.
         /// </summary>
         internal static string GetAllPassports {
             get {
@@ -151,7 +164,10 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Departments&quot;
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Name&quot;,
+        ///	   &quot;Phone&quot;
+        ///FROM &quot;Departments&quot;
         ///WHERE &quot;Id&quot; = @Id.
         /// </summary>
         internal static string GetDepartmentById {
@@ -161,7 +177,14 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Employees&quot;
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Name&quot;,
+        ///	   &quot;Surname&quot;,
+        ///	   &quot;Phone&quot;,
+        ///	   &quot;CompanyId&quot;,
+        ///	   &quot;PassportId&quot;,
+        ///	   &quot;DepartmentId&quot;
+        ///FROM &quot;Employees&quot;
         ///WHERE &quot;Id&quot; = @Id.
         /// </summary>
         internal static string GetEmployeeById {
@@ -171,7 +194,14 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Employees&quot;
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Name&quot;,
+        ///	   &quot;Surname&quot;,
+        ///	   &quot;Phone&quot;,
+        ///	   &quot;CompanyId&quot;,
+        ///	   &quot;PassportId&quot;,
+        ///	   &quot;DepartmentId&quot;
+        ///FROM &quot;Employees&quot;
         ///WHERE &quot;CompanyId&quot; = @CompanyId.
         /// </summary>
         internal static string GetEmployeesByCompanyId {
@@ -181,7 +211,14 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Employees&quot;
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Name&quot;,
+        ///	   &quot;Surname&quot;,
+        ///	   &quot;Phone&quot;,
+        ///	   &quot;CompanyId&quot;,
+        ///	   &quot;PassportId&quot;,
+        ///	   &quot;DepartmentId&quot;
+        ///FROM &quot;Employees&quot;
         ///WHERE &quot;CompanyId&quot; = @CompanyId AND &quot;DepartmentId&quot; = @DepartmentId.
         /// </summary>
         internal static string GetEmployeesByCompanyIdAndDepartmentId {
@@ -191,7 +228,10 @@ namespace EmployeesWebAPI.DataAccess {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на SELECT * FROM &quot;Passports&quot;
+        ///   Ищет локализованную строку, похожую на SELECT &quot;Id&quot;,
+        ///	   &quot;Type&quot;,
+        ///	   &quot;Number&quot;
+        ///FROM &quot;Passports&quot;
         ///WHERE &quot;Id&quot; = @Id.
         /// </summary>
         internal static string GetPassportById {

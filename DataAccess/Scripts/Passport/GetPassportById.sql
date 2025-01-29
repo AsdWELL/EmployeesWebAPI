@@ -1,2 +1,5 @@
-﻿SELECT * FROM "Passports"
+﻿SELECT "Id",
+	   "Type",
+	   "Number"
+FROM "Passports"
 WHERE "Id" = @Id
